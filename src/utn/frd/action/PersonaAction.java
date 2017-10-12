@@ -25,7 +25,9 @@ public class PersonaAction extends ActionSupport {
 			return ERROR;
 		}
 
-		new Persona(personas.size(), name, edad, gender);
+		//esto que sigue lo agregó Sergio, que en realidad era una trampita que me deberia haber dado cuenta (algo que habría que hacer en el punto 6)
+		Persona p = new Persona(personas.size(), name, edad, gender);
+		personas.add(p);
 		
 		return SUCCESS;
 	}
@@ -51,5 +53,23 @@ public class PersonaAction extends ActionSupport {
 		this.gender = gender;
 	}
 
+
+
+	public List<Persona> getPersonas() {
+		return personas;
+	}
+
+
+
+	public void setPersonas(List<Persona> personas) {
+		this.personas = personas;
+	}
+
+
+	public String execute(){
+		personas = PersistentManager.getInstance();
+		
+		return SUCCESS;
+	}
 
 }

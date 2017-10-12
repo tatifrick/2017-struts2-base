@@ -9,11 +9,15 @@ import utn.frd.db.PersistentManager;
 
 public class PersonaAction extends ActionSupport {
 
+	private String id;
 	private String name;
 	private String age;
 	private String gender;
 	private List<Persona> personas;
 	
+	public String nuevo() {
+		return SUCCESS;
+	}
 	public String save(){
 		personas = PersistentManager.getInstance();
 		int edad = 0;
@@ -66,6 +70,12 @@ public class PersonaAction extends ActionSupport {
 	}
 
 
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String execute(){
 		personas = PersistentManager.getInstance();
 		
